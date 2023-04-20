@@ -30,11 +30,8 @@ module.exports.datastores = {
    *                                                                          *
    ***************************************************************************/
 
-  someMysqlServer: {
+  default: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'root',
-    password: 'Proyecto2023', // Cambiar por la contraseña de tu usuario root de MySQL
-    database: 'cine',
+    url: 'mysql://root:Proyecto2023@localhost:3306/cine',
   },
 };

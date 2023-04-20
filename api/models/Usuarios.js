@@ -24,9 +24,8 @@ module.exports = {
       type: 'number',
     },
     fechaDeCreacion: {
-      type: 'string',
+      type: 'ref',
       required: true,
-      columnType: 'datetime',
     },
   },
 };
