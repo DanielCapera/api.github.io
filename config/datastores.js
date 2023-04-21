@@ -32,6 +32,7 @@ module.exports.datastores = {
 
   default: {
     adapter: 'sails-mysql',
-    url: 'mysql://root:Proyecto2023@localhost:3306/cine',
+    url: 'mysql://upe6nn6vvflnytfp:tRyESdf3nWDtb53SJ3sA@boo3j1mun5jkw0nddovn-mysql.services.clever-cloud.com:3306/boo3j1mun5jkw0nddovn',
+    ssl: true
   },
 };
