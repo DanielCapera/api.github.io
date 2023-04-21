@@ -389,7 +389,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'http://domain.mtl.clever-cloud.com/',
+    baseUrl: 'http://app-a003531b-9715-4242-9d58-007d3bdf6559.cleverapps.io/',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
