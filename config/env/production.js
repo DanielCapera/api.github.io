@@ -233,7 +233,7 @@ module.exports = {
    *                                                                          *
    ***************************************************************************/
   sockets: {
-    onlyAllowOrigins: ['https://apigithubio-production.up.railway.app/'],
+    onlyAllowOrigins: ['https://apigithubio-production.up.railway.app'],
     /***************************************************************************
      *                                                                          *
      * Uncomment the `onlyAllowOrigins` whitelist below to configure which      *
