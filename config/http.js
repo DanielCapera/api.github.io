@@ -41,13 +41,17 @@ module.exports.http = {
       'favicon',
     ],
 
-    cors: {
-      allRoutes: true,
-      allowOrigins: '*',
-      allowCredentials: false,
-      allowRequestMethods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-      allowRequestHeaders: 'content-type'
+    cors: function(req, res, next) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'content-type');
+      next();
     },
+
+    // Agrega el middleware cors personalizado aquí
+    customCors: function(req, res, next) {
+      require('../api/middlewares/cors')(req, res, next);
+    }
 
     /***************************************************************************
     *                                                                          *
