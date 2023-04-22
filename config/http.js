@@ -29,17 +29,25 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+    order: [
+      'cookieParser',
+      'session',
+      'bodyParser',
+      'compress',
+      'poweredBy',
+      'cors',
+      'router',
+      'www',
+      'favicon',
+    ],
 
+    cors: {
+      allRoutes: true,
+      allowOrigins: '*',
+      allowCredentials: false,
+      allowRequestMethods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+      allowRequestHeaders: 'content-type'
+    },
 
     /***************************************************************************
     *                                                                          *
