@@ -10,24 +10,22 @@
  */
 
 module.exports.http = {
-
   /****************************************************************************
-  *                                                                           *
-  * Sails/Express middleware to run for every HTTP request.                   *
-  * (Only applies to HTTP requests -- not virtual WebSocket requests.)        *
-  *                                                                           *
-  * https://sailsjs.com/documentation/concepts/middleware                     *
-  *                                                                           *
-  ****************************************************************************/
+   *                                                                           *
+   * Sails/Express middleware to run for every HTTP request.                   *
+   * (Only applies to HTTP requests -- not virtual WebSocket requests.)        *
+   *                                                                           *
+   * https://sailsjs.com/documentation/concepts/middleware                     *
+   *                                                                           *
+   ****************************************************************************/
 
   middleware: {
-
     /***************************************************************************
-    *                                                                          *
-    * The order in which middleware should be run for HTTP requests.           *
-    * (This Sails app's routes are handled by the "router" middleware below.)  *
-    *                                                                          *
-    ***************************************************************************/
+     *                                                                          *
+     * The order in which middleware should be run for HTTP requests.           *
+     * (This Sails app's routes are handled by the "router" middleware below.)  *
+     *                                                                          *
+     ***************************************************************************/
 
     order: [
       'cookieParser',
@@ -35,38 +33,34 @@ module.exports.http = {
       'bodyParser',
       'compress',
       'poweredBy',
-      'cors',
+      'customCors', // Agrega aquí el middleware customCors
       'router',
       'www',
       'favicon',
     ],
 
-    cors: function(req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Allow-Headers', 'content-type');
+    customCors: function (req, res, next) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, OPTIONS, HEAD'
+      );
+      res.header('Access-Control-Allow-Headers', 'content-type');
       next();
     },
 
-    // Agrega el middleware cors personalizado aquí
-    customCors: function(req, res, next) {
-      require('../api/middlewares/cors')(req, res, next);
-    }
-
     /***************************************************************************
-    *                                                                          *
-    * The body parser that will handle incoming multipart HTTP requests.       *
-    *                                                                          *
-    * https://sailsjs.com/config/http#?customizing-the-body-parser             *
-    *                                                                          *
-    ***************************************************************************/
+     *                                                                          *
+     * The body parser that will handle incoming multipart HTTP requests.       *
+     *                                                                          *
+     * https://sailsjs.com/config/http#?customizing-the-body-parser             *
+     *                                                                          *
+     ***************************************************************************/
 
     // bodyParser: (function _configureBodyParser(){
     //   var skipper = require('skipper');
     //   var middlewareFn = skipper({ strict: true });
     //   return middlewareFn;
     // })(),
-
   },
-
 };
